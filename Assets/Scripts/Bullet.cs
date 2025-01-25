@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed = 10f; // Bullet speed
     [SerializeField] private float lifespan = 5f; // How long the bullet exists before being destroyed
 
+    Weapon weapon;
+
     void Start()
     {
         // Assign a random damage value around the base damage with variation
@@ -17,6 +19,8 @@ public class Bullet : MonoBehaviour
         
         // Ensure damage is not negative
         damage = Mathf.Max(0, damage);
+        
+        damage = weapon.GetDameage();
         
         // Destroy the bullet after its lifespan expires
         Destroy(gameObject, lifespan);

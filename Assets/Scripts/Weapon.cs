@@ -6,16 +6,19 @@ public class Weapon : MonoBehaviour
     [SerializeField] private int attackDamage = 10; // Base attack damage
     [SerializeField] private float range = 5f;      // Weapon range
     [SerializeField] private float cooldown = 5f;   // Cooldown time (in seconds)
+    Player player;
 
     
-    public Player player;
-
     private float lastAttackTime = -Mathf.Infinity; // Tracks when the weapon was last used
+
+   
+
 
     // Method to attempt an attack
     public bool TryAttack()
     {
-        
+         //imposto il danno dal player
+        attackDamage += player.GetattackPower();
         if (Time.time >= lastAttackTime + cooldown)
         {
             PerformAttack();
@@ -32,7 +35,11 @@ public class Weapon : MonoBehaviour
     // Perform the actual attack logic (placeholder)
     private void PerformAttack()
     {
-        Debug.Log($"Weapon attack performed! Damage: {attackDamage}, Range: {range}");
+        // cra proiettile
+    }
+
+    public int GetDameage(){
+        return attackDamage;
     }
 }
 
