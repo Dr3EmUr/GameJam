@@ -5,9 +5,20 @@ public class Weapon : MonoBehaviour
 {
     [Header("Weapon Stats")]
     [SerializeField] public int attackDamage = 10; // Base attack damage
+<<<<<<< HEAD
     [SerializeField] public float range = 5f;      // Weapon range
     [SerializeField] public float cooldown = 5f;   // Cooldown time (in seconds)
     private float lastAttackTime = -0f; // Tracks when the weapon was last used
+=======
+    [SerializeField] public double range = 5f;      // Weapon range
+    [SerializeField] public double cooldown = 5f;   // Cooldown time (in seconds)
+    private double lastAttackTime = 0; // Tracks when the weapon was last used
+
+    void Start()
+    {
+        lastAttackTime = 0;
+    }
+>>>>>>> c6c9ba02dd2de789d60820aeecdef4b94b007992
 
     // Method to attempt an attack
     public bool TryAttack(Player player)
@@ -16,7 +27,7 @@ public class Weapon : MonoBehaviour
         attackDamage += player.GetattackPower();
 
         Debug.Log(Time.time);
-        Debug.Log(lastAttackTime + cooldown);
+        Debug.Log(lastAttackTime);
         if (Time.time >= lastAttackTime + cooldown)
         {
             PerformAttack(player);
@@ -28,6 +39,7 @@ public class Weapon : MonoBehaviour
             Debug.Log("Weapon is on cooldown!");
             return false;
         }
+
     }
 
     // Perform the actual attack logic (placeholder)
@@ -45,7 +57,7 @@ public class Weapon : MonoBehaviour
 
         var playerPos = player.transform.position;
         bullet.transform.position = playerPos;
-        bullet.currentDirection = new Vector2(mousePos.x - playerPos.x, mousePos.y - playerPos.y);
+        bullet.currentDirection = new Vector2(mousePos.x - playerPos.x, mousePos.y - playerPos.y).normalized;
     }
 
     public int GetDamage(){

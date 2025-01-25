@@ -244,7 +244,7 @@ Transform:
   m_GameObject: {fileID: 334460303}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.28, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28227784903a2ee479bd18077c4fdcea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1355986102}
+  player: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Root: {fileID: 334460305}
   GenericRoom: {fileID: 4660006462166478990, guid: 7f26a9dfb0fc5ba4183d75e95f85dc85, type: 3}
+  PlayerPrefab: {fileID: 1365641049319174167, guid: 5e9872f3dbbe6a74983d9ca2d63de962, type: 3}
   HorizontalCorridor: {fileID: 4660006462166478990, guid: 7f26a9dfb0fc5ba4183d75e95f85dc85, type: 3}
   TotalRooms: 10
   TreasureRooms: 2
@@ -1168,7 +1169,6 @@ Transform:
   m_LocalScale: {x: 5.7034526, y: 4.559854, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1355986102}
   - {fileID: 1140977712}
   - {fileID: 219434773}
   - {fileID: 415860852}
