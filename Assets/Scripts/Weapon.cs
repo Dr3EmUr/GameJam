@@ -14,13 +14,6 @@ public class Weapon : MonoBehaviour
         lastAttackTime = 0;
     }
 
-    void Update()
-    {
-        Debug.Log("WeaponUpdate");
-        if (lastAttackTime > Time.time)
-            lastAttackTime = -cooldown;
-    }
-
     // Method to attempt an attack
     public bool TryAttack(Player player)
     {
@@ -58,7 +51,7 @@ public class Weapon : MonoBehaviour
 
         var playerPos = player.transform.position;
         bullet.transform.position = playerPos;
-        bullet.currentDirection = new Vector2(mousePos.x - playerPos.x, mousePos.y - playerPos.y);
+        bullet.currentDirection = new Vector2(mousePos.x - playerPos.x, mousePos.y - playerPos.y).normalized;
     }
 
     public int GetDamage(){

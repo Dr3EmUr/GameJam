@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RoomGenerator : MonoBehaviour
@@ -8,7 +9,7 @@ public class RoomGenerator : MonoBehaviour
     public GameObject HorizontalCorridor; // per ora no
     public int TotalRooms = 10;
     public int TreasureRooms = 2;
-    List<RoomNodeData> nodes = new List<RoomNodeData>();
+    Dictionary<Vector2,RoomNodeData> nodes = new Dictionary<Vector2,RoomNodeData>();
     void Start()
     {
         GenerateRoomTree();
@@ -19,7 +20,7 @@ public class RoomGenerator : MonoBehaviour
     {
         
         RoomNodeData initialNode = new RoomNodeData(new Vector2(0,0));
-        nodes.Add(initialNode);
+        nodes.Add(initialNode.IdealPosition,initialNode);
 
         int normalRooms = TotalRooms - TreasureRooms - 1 - 1; // (- boss room - initial room)
 
@@ -43,23 +44,23 @@ public class RoomGenerator : MonoBehaviour
         do
         {
             selectedRoomIndex = Random.Range(0,nodes.Count);
-        }while (nodes[selectedRoomIndex].isFull() == true);
+        }while (nodes.ElementAt(selectedRoomIndex).Value.isFull() == true);
 
-        RoomNodeData startingNode = nodes[selectedRoomIndex];
+        RoomNodeData startingNode = nodes.ElementAt(selectedRoomIndex).Value;
 
         List<Vector2> availableDirections = new List<Vector2>();
 
-        if (startingNode.upOpen == false)
+        if (nodes.ContainsKey(startingNode.IdealPosition + Vector2.up) == false)
             availableDirections.Add(Vector2.up);
 
-        if (startingNode.leftOpen == false)
-            availableDirections.Add(Vector2.left);
+        if (nodes.ContainsKey(startingNode.IdealPosition + Vector2.right) == false)
+            availableDirections.Add(Vector2.right);
 
-        if (startingNode.downOpen == false)
+        if (nodes.ContainsKey(startingNode.IdealPosition + Vector2.down) == false)
             availableDirections.Add(Vector2.down);
 
-        if (startingNode.rightOpen == false)
-            availableDirections.Add(Vector2.right);
+        if (nodes.ContainsKey(startingNode.IdealPosition + Vector2.left) == false)
+            availableDirections.Add(Vector2.left);
 
         int chosenDirectionIndex = Random.Range(0,availableDirections.Count);
         Vector2 chosenDirection = availableDirections[chosenDirectionIndex];
@@ -72,14 +73,14 @@ public class RoomGenerator : MonoBehaviour
         if (roomType != null)
             newNode.roomType = roomType;
 
-        nodes.Add(newNode);
+        nodes.Add(newNode.IdealPosition,newNode);
     }
 
     void DrawRooms()
     {
         for(int i = 0; i < nodes.Count; i++)
         {
-            RoomNodeData node = nodes[i];
+            RoomNodeData node = nodes.ElementAt(i).Value;
 
             GameObject roomObject = Instantiate(GenericRoom,Root);
             Room roomComponent = roomObject.GetComponent<Room>();
