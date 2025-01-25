@@ -48,9 +48,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WallsTilemap: {fileID: 4681532141461576777}
   FloorTilemap: {fileID: 2152439953265601269}
-  FloorTile: {fileID: 0}
+  FloorTile: {fileID: 11400000, guid: 36a523a0047d4fd4083a5b59d23ae9b2, type: 2}
+  WallTile: {fileID: 11400000, guid: 44e8ae657e2f85a489960af23e2365a6, type: 2}
   h: 9
   w: 15
+  upDoor: 0
+  downDoor: 0
+  leftDoor: 0
+  rightDoor: 0
 --- !u!1 &5018745838728023281
 GameObject:
   m_ObjectHideFlags: 0

@@ -582,6 +582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 782587716}
   - component: {fileID: 782587715}
+  - component: {fileID: 782587717}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -618,6 +619,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &782587717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782587714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f45fb0144324aa4c82aa5b30e9f415e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Root: {fileID: 334460305}
+  GenericRoom: {fileID: 4660006462166478990, guid: 7f26a9dfb0fc5ba4183d75e95f85dc85, type: 3}
+  HorizontalCorridor: {fileID: 4660006462166478990, guid: 7f26a9dfb0fc5ba4183d75e95f85dc85, type: 3}
+  TotalRooms: 10
+  TreasureRooms: 2
 --- !u!1 &1140977711
 GameObject:
   m_ObjectHideFlags: 0
