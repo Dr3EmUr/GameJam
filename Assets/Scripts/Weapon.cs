@@ -3,10 +3,10 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [Header("Weapon Stats")]
-    [SerializeField] private int attackDamage = 10; // Base attack damage
-    [SerializeField] private float range = 5f;      // Weapon range
-    [SerializeField] private float cooldown = 5f;   // Cooldown time (in seconds)
-    Player player;
+    [SerializeField] public int attackDamage = 10; // Base attack damage
+    [SerializeField] public float range = 5f;      // Weapon range
+    [SerializeField] public float cooldown = 5f;   // Cooldown time (in seconds)
+    public Player player;
 
     
     private float lastAttackTime = -Mathf.Infinity; // Tracks when the weapon was last used
@@ -33,9 +33,11 @@ public class Weapon : MonoBehaviour
     }
 
     // Perform the actual attack logic (placeholder)
+    public GameObject BulletModel;
     private void PerformAttack()
     {
-        // cra proiettile
+        GameObject go = Instantiate(BulletModel);
+        var bullet = go.GetComponent<Bullet>();
     }
 
     public int GetDameage(){

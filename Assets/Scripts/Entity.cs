@@ -49,7 +49,7 @@ public class Entity : MonoBehaviour
     {
         if (!isAlive) return;
 
-        transform.Translate( direction.normalized * speed * Time.deltaTime);
+        transform.Translate( direction * speed * Time.deltaTime);
     }
 
     // Start viene chiamato una volta prima dell'esecuzione di Update
