@@ -82,13 +82,13 @@ public class Player : Entity
         RegenerateStamina();
 
         // Sprint logic (consume stamina)
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         if (Input.GetKey(KeyCode.LeftShift) && movement != Vector3.zero && stamina > 0)
         {
             if (ConsumeStamina(10 * Time.deltaTime)) // Sprinting costs stamina
             {
-                Move(movement * 2); // Double speed for sprinting
+                Move(movement * agility); // Double speed for sprinting
             }
         }
         else
