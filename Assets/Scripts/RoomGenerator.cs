@@ -43,7 +43,7 @@ public class RoomGenerator : MonoBehaviour
         do
         {
             selectedRoomIndex = Random.Range(0,nodes.Count);
-        }while (nodes[selectedRoomIndex].isFull() == false);
+        }while (nodes[selectedRoomIndex].isFull() == true);
 
         RoomNodeData startingNode = nodes[selectedRoomIndex];
 
@@ -94,8 +94,8 @@ public class RoomGenerator : MonoBehaviour
             if (node.downOpen)
                 roomComponent.downDoor = true;
 
-            if (node.rightOpen)
-                roomComponent.rightDoor = true; 
+            if (node.upOpen)
+                roomComponent.upDoor = true; 
 
             roomComponent.OpenDoors();
         }

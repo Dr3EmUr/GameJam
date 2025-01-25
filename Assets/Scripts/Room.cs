@@ -39,10 +39,10 @@ public class Room : MonoBehaviour
             OpenDoor(new Vector3Int(7,0));
 
         if (leftDoor)
-            OpenDoor(new Vector3Int(0,5));
+            OpenDoor(new Vector3Int(0,4));
         
         if (rightDoor)
-            OpenDoor(new Vector3Int(14,5));
+            OpenDoor(new Vector3Int(14,4));
     }
 
     // Update is called once per frame
