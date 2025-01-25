@@ -23,6 +23,8 @@ public class Player : Entity
     {
         base.Start();
         EquipWeapon(Instantiate(weaponOne)); // Equipaggia la prima arma di default
+
+        Camera.main.GetComponent<CameraScript>().player = transform;
     }
 
     protected override void FixedUpdate()
