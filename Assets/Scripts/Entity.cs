@@ -4,13 +4,12 @@ public class Entity : MonoBehaviour
 {
     // Parametri base per tutte le entità
     [Header("Entity Stats")]
-    protected int speed = 2;
-    protected int health = 5;
-    protected int maxHealth = 5;
+    public int speed = 2;
+    public int health = 5;
+    public int maxHealth = 5;
 
     [Header("State")]
     protected bool isAlive = true;
-    protected Vector3 currentPosition;
 
     // Metodo per applicare danno all'entità
     public virtual void TakeDamage(int damage)
@@ -50,14 +49,13 @@ public class Entity : MonoBehaviour
     {
         if (!isAlive) return;
 
-        currentPosition += direction.normalized * speed * Time.deltaTime;
-        transform.position = currentPosition;
+        transform.Translate( direction.normalized * speed * Time.deltaTime);
     }
 
     // Start viene chiamato una volta prima dell'esecuzione di Update
     protected virtual void Start()
     {
-        currentPosition = transform.position;
+
     }
 
     // Update viene chiamato una volta per frame
