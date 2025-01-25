@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: camminaSinistra
+  m_Name: cmtromboneSotto
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 3888195753813577353, guid: 6fb3745c0fb7d704a91618d4d8158c55, type: 3}
+      value: {fileID: -6434619521132143291, guid: d361b372a893ac44b8a97186d86945cd, type: 3}
     - time: 0.33333334
-      value: {fileID: -4296920729523384369, guid: 6fb3745c0fb7d704a91618d4d8158c55, type: 3}
+      value: {fileID: -311088361374985028, guid: d361b372a893ac44b8a97186d86945cd, type: 3}
     - time: 0.6666667
-      value: {fileID: 3888195753813577353, guid: 6fb3745c0fb7d704a91618d4d8158c55, type: 3}
+      value: {fileID: -311088361374985028, guid: d361b372a893ac44b8a97186d86945cd, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,9 +48,9 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 3888195753813577353, guid: 6fb3745c0fb7d704a91618d4d8158c55, type: 3}
-    - {fileID: -4296920729523384369, guid: 6fb3745c0fb7d704a91618d4d8158c55, type: 3}
-    - {fileID: 3888195753813577353, guid: 6fb3745c0fb7d704a91618d4d8158c55, type: 3}
+    - {fileID: -6434619521132143291, guid: d361b372a893ac44b8a97186d86945cd, type: 3}
+    - {fileID: -311088361374985028, guid: d361b372a893ac44b8a97186d86945cd, type: 3}
+    - {fileID: -311088361374985028, guid: d361b372a893ac44b8a97186d86945cd, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

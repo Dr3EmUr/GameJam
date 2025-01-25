@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: 626fbf9583e563e479b6ee74d72cc3ed
+guid: 0c896b6d5e7ddbf4690fe315450c9ad3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7326884634496065041
-    second: camminaviolinomerda_0
+      213: -1215625621405258534
+    second: camminaviolinomerda 1_0
   - first:
-      213: 6706952405214357273
-    second: camminaviolinomerda_1
+      213: -4650937440885363549
+    second: camminaviolinomerda 1_1
   - first:
-      213: -194314962233930890
-    second: camminaviolinomerda_2
+      213: 1171198786020766204
+    second: camminaviolinomerda 1_2
   - first:
-      213: -8398718128699705983
-    second: camminaviolinomerda_3
+      213: -2870479831954340467
+    second: camminaviolinomerda 1_3
   - first:
-      213: -4675379947785371169
-    second: camminaviolinomerda_4
+      213: 5430136770367261689
+    second: camminaviolinomerda 1_4
   - first:
-      213: 7030029344874075048
-    second: camminaviolinomerda_5
+      213: -7395081978591006531
+    second: camminaviolinomerda 1_5
   - first:
-      213: 6444436029856908277
-    second: camminaviolinomerda_6
+      213: -8281727765021308560
+    second: camminaviolinomerda 1_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -69,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 450
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -131,7 +131,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: camminaviolinomerda_0
+      name: camminaviolinomerda 1_0
       rect:
         serializedVersion: 2
         x: 25
@@ -146,14 +146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe128929e3da15a90800000000000000
-      internalID: -7326884634496065041
+      spriteID: adca64020fa312fe0800000000000000
+      internalID: -1215625621405258534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: camminaviolinomerda_1
+      name: camminaviolinomerda 1_1
       rect:
         serializedVersion: 2
         x: 361
@@ -168,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 917e0467da1e31d50800000000000000
-      internalID: 6706952405214357273
+      spriteID: 3aca67b0a0d847fb0800000000000000
+      internalID: -4650937440885363549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: camminaviolinomerda_2
+      name: camminaviolinomerda 1_2
       rect:
         serializedVersion: 2
         x: 394
@@ -190,14 +190,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67bc0854297ad4df0800000000000000
-      internalID: -194314962233930890
+      spriteID: cf1f222371fe04010800000000000000
+      internalID: 1171198786020766204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: camminaviolinomerda_3
+      name: camminaviolinomerda 1_3
       rect:
         serializedVersion: 2
         x: 50
@@ -212,14 +212,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 185783a3c52c17b80800000000000000
-      internalID: -8398718128699705983
+      spriteID: d8540712dc10a28d0800000000000000
+      internalID: -2870479831954340467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: camminaviolinomerda_4
+      name: camminaviolinomerda 1_4
       rect:
         serializedVersion: 2
         x: 90
@@ -234,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fd1c44e65b6bd1fb0800000000000000
-      internalID: -4675379947785371169
+      spriteID: 9fb078f5f98bb5b40800000000000000
+      internalID: 5430136770367261689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: camminaviolinomerda_5
+      name: camminaviolinomerda 1_5
       rect:
         serializedVersion: 2
         x: 394
@@ -256,14 +256,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a39ac5417eaf8160800000000000000
-      internalID: 7030029344874075048
+      spriteID: db0b03d0f146f5990800000000000000
+      internalID: -7395081978591006531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: camminaviolinomerda_6
+      name: camminaviolinomerda 1_6
       rect:
         serializedVersion: 2
         x: 672
@@ -278,8 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5f38951dc6c3f6950800000000000000
-      internalID: 6444436029856908277
+      spriteID: 0794a67e974611d80800000000000000
+      internalID: -8281727765021308560
       vertices: []
       indices: 
       edges: []
@@ -297,14 +297,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      camminaviolinomerda_0: -7326884634496065041
-      camminaviolinomerda_1: 6706952405214357273
-      camminaviolinomerda_2: -194314962233930890
-      camminaviolinomerda_3: -8398718128699705983
-      camminaviolinomerda_4: -4675379947785371169
-      camminaviolinomerda_5: 7030029344874075048
-      camminaviolinomerda_6: 6444436029856908277
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

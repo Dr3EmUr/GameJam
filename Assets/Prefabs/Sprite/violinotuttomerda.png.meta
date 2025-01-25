@@ -1,37 +1,49 @@
 fileFormatVersion: 2
-guid: 6fb3745c0fb7d704a91618d4d8158c55
+guid: 5d7983afd53809f45a8351b40a82292f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3888195753813577353
-    second: camminata_0
+      213: 4326083480349570901
+    second: violinotuttomerda_0
   - first:
-      213: -4296920729523384369
-    second: camminata_1
+      213: -6130527091913361242
+    second: violinotuttomerda_1
   - first:
-      213: -5374004990621541520
-    second: camminata_2
+      213: -2690376275519774974
+    second: violinotuttomerda_2
   - first:
-      213: -6257676757164529534
-    second: camminata_3
+      213: 9077895135133747449
+    second: violinotuttomerda_3
   - first:
-      213: -3772375446381975840
-    second: camminata_4
+      213: 1295460985066963303
+    second: violinotuttomerda_4
   - first:
-      213: -3507625407891701626
-    second: camminata_5
+      213: 3652100742863291363
+    second: violinotuttomerda_5
   - first:
-      213: 3743634958453008284
-    second: camminata_6
+      213: 8109240290426179410
+    second: violinotuttomerda_6
   - first:
-      213: 7311049493447290976
-    second: camminata_7
+      213: 6480269383163154410
+    second: violinotuttomerda_7
   - first:
-      213: 3364347278686981473
-    second: camminata_8
+      213: 1648874470799629030
+    second: violinotuttomerda_8
   - first:
-      213: -8197451079659727678
-    second: camminata_9
+      213: -3211720655775336865
+    second: violinotuttomerda_9
+  - first:
+      213: -5380621300169972478
+    second: violinotuttomerda_10
+  - first:
+      213: 5838110306545697462
+    second: violinotuttomerda_11
+  - first:
+      213: 7637814120150060741
+    second: violinotuttomerda_12
+  - first:
+      213: 3107735168872388789
+    second: violinotuttomerda_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -140,12 +152,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: camminata_0
+      name: violinotuttomerda_0
       rect:
         serializedVersion: 2
-        x: 48
-        y: 562
-        width: 248
+        x: 90
+        y: 699
+        width: 271
         height: 475
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -155,20 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98e8d330075a5f530800000000000000
-      internalID: 3888195753813577353
+      spriteID: 557fbea3106590c30800000000000000
+      internalID: 4326083480349570901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: camminata_1
+      name: violinotuttomerda_1
       rect:
         serializedVersion: 2
-        x: 392
-        y: 556
-        width: 242
-        height: 484
+        x: 404
+        y: 693
+        width: 279
+        height: 482
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,19 +189,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fcf0fb0dc554e54c0800000000000000
-      internalID: -4296920729523384369
+      spriteID: 6a87890471efbeaa0800000000000000
+      internalID: -6130527091913361242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: camminata_2
+      name: violinotuttomerda_2
       rect:
         serializedVersion: 2
-        x: 669
-        y: 576
-        width: 215
+        x: 648
+        y: 713
+        width: 323
         height: 453
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -199,18 +211,172 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07b93d80fe2bb65b0800000000000000
-      internalID: -5374004990621541520
+      spriteID: 20f5189180dd9aad0800000000000000
+      internalID: -2690376275519774974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: camminata_3
+      name: violinotuttomerda_3
       rect:
         serializedVersion: 2
-        x: 940
-        y: 556
+        x: 988
+        y: 693
+        width: 279
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f8c4e557892bfd70800000000000000
+      internalID: 9077895135133747449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violinotuttomerda_4
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 699
+        width: 271
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7614b4bf6e66af110800000000000000
+      internalID: 1295460985066963303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violinotuttomerda_5
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 713
+        width: 285
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e38e46a64edea230800000000000000
+      internalID: 3652100742863291363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violinotuttomerda_6
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 83
+        width: 271
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25f432d541fc98070800000000000000
+      internalID: 8109240290426179410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violinotuttomerda_7
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 77
+        width: 259
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aef87488baa8ee950800000000000000
+      internalID: 6480269383163154410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violinotuttomerda_8
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 324
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ead837589af1e610800000000000000
+      internalID: 1648874470799629030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violinotuttomerda_9
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 97
+        width: 258
+        height: 453
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f56f9ba741dad63d0800000000000000
+      internalID: -3211720655775336865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: violinotuttomerda_10
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 77
         width: 242
         height: 482
       alignment: 0
@@ -221,18 +387,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2886df9d4244829a0800000000000000
-      internalID: -6257676757164529534
+      spriteID: 205e77c6f613455b0800000000000000
+      internalID: -5380621300169972478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: camminata_4
+      name: violinotuttomerda_11
       rect:
         serializedVersion: 2
-        x: 1262
-        y: 562
+        x: 1310
+        y: 83
         width: 252
         height: 475
       alignment: 0
@@ -243,19 +409,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e62ff6b484d5abc0800000000000000
-      internalID: -3772375446381975840
+      spriteID: 6b204356462250150800000000000000
+      internalID: 5838110306545697462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: camminata_5
+      name: violinotuttomerda_12
       rect:
         serializedVersion: 2
-        x: 1572
-        y: 576
-        width: 212
+        x: 1608
+        y: 97
+        width: 247
         height: 450
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -265,20 +431,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6800b759649625fc0800000000000000
-      internalID: -3507625407891701626
+      spriteID: 5cec104b977fef960800000000000000
+      internalID: 7637814120150060741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: camminata_6
+      name: violinotuttomerda_13
       rect:
         serializedVersion: 2
-        x: 669
-        y: 40
-        width: 215
-        height: 513
+        x: 1886
+        y: 329
+        width: 7
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,74 +453,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c97635bf82014f330800000000000000
-      internalID: 3743634958453008284
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: camminata_7
-      rect:
-        serializedVersion: 2
-        x: 939
-        y: 21
-        width: 215
-        height: 532
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 060b93857c0167560800000000000000
-      internalID: 7311049493447290976
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: camminata_8
-      rect:
-        serializedVersion: 2
-        x: 1305
-        y: 29
-        width: 212
-        height: 513
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 16d803f560090be20800000000000000
-      internalID: 3364347278686981473
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: camminata_9
-      rect:
-        serializedVersion: 2
-        x: 1572
-        y: 36
-        width: 212
-        height: 506
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2c45d3dccadcc3e80800000000000000
-      internalID: -8197451079659727678
+      spriteID: 5b890acaba4e02b20800000000000000
+      internalID: 3107735168872388789
       vertices: []
       indices: 
       edges: []
@@ -363,7 +463,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -373,16 +473,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      camminata_0: 3888195753813577353
-      camminata_1: -4296920729523384369
-      camminata_2: -5374004990621541520
-      camminata_3: -6257676757164529534
-      camminata_4: -3772375446381975840
-      camminata_5: -3507625407891701626
-      camminata_6: 3743634958453008284
-      camminata_7: 7311049493447290976
-      camminata_8: 3364347278686981473
-      camminata_9: -8197451079659727678
+      violinotuttomerda_0: 4326083480349570901
+      violinotuttomerda_1: -6130527091913361242
+      violinotuttomerda_10: -5380621300169972478
+      violinotuttomerda_11: 5838110306545697462
+      violinotuttomerda_12: 7637814120150060741
+      violinotuttomerda_13: 3107735168872388789
+      violinotuttomerda_2: -2690376275519774974
+      violinotuttomerda_3: 9077895135133747449
+      violinotuttomerda_4: 1295460985066963303
+      violinotuttomerda_5: 3652100742863291363
+      violinotuttomerda_6: 8109240290426179410
+      violinotuttomerda_7: 6480269383163154410
+      violinotuttomerda_8: 1648874470799629030
+      violinotuttomerda_9: -3211720655775336865
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
