@@ -11,6 +11,7 @@ public class Player : Entity
     [SerializeField] private int maxStamina = 100; // Maximum stamina
     [SerializeField] private float staminaRegenRate = 5f; // Stamina points regenerated per second
 
+    Item item;
     private List<Item> inventory = new List<Item>(); // List of collected items
 
     // Calculate stats based on collected items
@@ -19,19 +20,22 @@ public class Player : Entity
         int totalAttackBonus = 0;
         int totalDefenseBonus = 0;
         int totalAgilityBonus = 0;
+        int totaStaminaMaxBuonus = 0;
 
         foreach (Item item in inventory)
         {
-            totalAttackBonus += item.AttackBonus;
-            totalDefenseBonus += item.DefenseBonus;
-            totalAgilityBonus += item.AgilityBonus;
+            totalAttackBonus += item.AttackBonusItem; 
+            totalDefenseBonus += item.DefenseBonusItem;
+            totalAgilityBonus +=  item.AgilityBonusItem;
+            totaStaminaMaxBuonus += item.StaminaBonusItem;
+
         }
 
         // Update stats with bonuses
         attackPower = 10 + totalAttackBonus;
         defense = 5 + totalDefenseBonus;
         agility = 5 + totalAgilityBonus;
-
+        maxStamina = 5 + totaStaminaMaxBuonus;
         Debug.Log($"Updated Stats - Attack: {attackPower}, Defense: {defense}, Agility: {agility}");
     }
 
@@ -91,5 +95,8 @@ public class Player : Entity
         {
             Move(movement); // Normal movement
         }
+    }
+    public int GetattackPower (){
+         return attackPower;
     }
 }
