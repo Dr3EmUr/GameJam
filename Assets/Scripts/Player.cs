@@ -22,7 +22,7 @@ public class Player : Entity
     protected override void Start()
     {
         base.Start();
-        EquipWeapon(weaponOne); // Equipaggia la prima arma di default
+        EquipWeapon(Instantiate(weaponOne)); // Equipaggia la prima arma di default
     }
 
     protected override void FixedUpdate()
