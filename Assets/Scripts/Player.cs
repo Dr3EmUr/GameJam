@@ -1,33 +1,95 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public class Enemy : Entity
+public class Player : Entity
 {
-    [Header("Enemy Stats")]
-    [SerializeField] private int livello = 1; // Livello del nemico
-    [SerializeField] private int dannoBase = 1; // Danno base del nemico
+    [Header("Player Stats")]
+    [SerializeField] private int attackPower = 10; // Base attack power
+    [SerializeField] private int defense = 5;      // Base defense
+    [SerializeField] private int agility = 5;      // Base agility
+    [SerializeField] private int stamina = 100;    // Player's current stamina
+    [SerializeField] private int maxStamina = 100; // Maximum stamina
+    [SerializeField] private float staminaRegenRate = 5f; // Stamina points regenerated per second
 
-    public int Livello => livello;
+    private List<Item> inventory = new List<Item>(); // List of collected items
 
-    // Metodo per infliggere danni al giocatore
-    public void AttaccaGiocatore(Entity giocatore)
+    // Calculate stats based on collected items
+    public void CalculateStats()
     {
-        if (!isAlive) return;
+        int totalAttackBonus = 0;
+        int totalDefenseBonus = 0;
+        int totalAgilityBonus = 0;
 
-        int dannoInflitto = CalcolaDanno();
-        giocatore.TakeDamage(dannoInflitto);
-        Debug.Log($"Il nemico {gameObject.name} ha inflitto {dannoInflitto} danni al giocatore.");
+        foreach (Item item in inventory)
+        {
+            totalAttackBonus += item.AttackBonus;
+            totalDefenseBonus += item.DefenseBonus;
+            totalAgilityBonus += item.AgilityBonus;
+        }
+
+        // Update stats with bonuses
+        attackPower = 10 + totalAttackBonus;
+        defense = 5 + totalDefenseBonus;
+        agility = 5 + totalAgilityBonus;
+
+        Debug.Log($"Updated Stats - Attack: {attackPower}, Defense: {defense}, Agility: {agility}");
     }
 
-    // Calcola il danno basato sul livello del nemico
-    private int CalcolaDanno()
+    // Add an item to the inventory and recalculate stats
+    public void AddItemToInventory(Item item)
     {
-        return dannoBase + livello; // Aggiunge il livello al danno base
+        inventory.Add(item);
+        Debug.Log($"Picked up item: {item.itemName}");
+        CalculateStats();
     }
 
-    // Logica specifica della morte del nemico
-    protected override void Die()
+    // Consume stamina for actions
+    public bool ConsumeStamina(float amount)
     {
-        base.Die();
-        Debug.Log($"{gameObject.name} (Livello {livello}) è stato sconfitto.");
+        if (stamina >= amount)
+        {
+            stamina -= Mathf.RoundToInt(amount);
+            Debug.Log($"Stamina consumed: {amount}. Remaining stamina: {stamina}");
+            return true;
+        }
+        else
+        {
+            Debug.Log("Not enough stamina!");
+            return false;
+        }
+    }
+
+    // Regenerate stamina over time
+    private void RegenerateStamina()
+    {
+        if (stamina < maxStamina)
+        {
+            stamina += Mathf.RoundToInt(staminaRegenRate * Time.deltaTime);
+            stamina = Mathf.Min(stamina, maxStamina); // Clamp to max stamina
+        }
+    }
+
+    // Handle player input and stamina regeneration
+    protected override void Update()
+    {
+        base.Update();
+
+        // Regenerate stamina every frame
+        RegenerateStamina();
+
+        // Sprint logic (consume stamina)
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+        if (Input.GetKey(KeyCode.LeftShift) && movement != Vector3.zero && stamina > 0)
+        {
+            if (ConsumeStamina(10 * Time.deltaTime)) // Sprinting costs stamina
+            {
+                Move(movement * 2); // Double speed for sprinting
+            }
+        }
+        else
+        {
+            Move(movement); // Normal movement
+        }
     }
 }
