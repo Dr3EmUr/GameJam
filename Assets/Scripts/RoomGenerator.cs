@@ -53,13 +53,13 @@ public class RoomGenerator : MonoBehaviour
             availableDirections.Add(Vector2.up);
 
         if (startingNode.leftOpen == false)
-        availableDirections.Add(Vector2.left);
+            availableDirections.Add(Vector2.left);
 
         if (startingNode.downOpen == false)
-        availableDirections.Add(Vector2.down);
+            availableDirections.Add(Vector2.down);
 
         if (startingNode.rightOpen == false)
-        availableDirections.Add(Vector2.right);
+            availableDirections.Add(Vector2.right);
 
         int chosenDirectionIndex = Random.Range(0,availableDirections.Count);
         Vector2 chosenDirection = availableDirections[chosenDirectionIndex];

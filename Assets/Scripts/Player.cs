@@ -12,24 +12,28 @@ public class Player : Entity
     [SerializeField] private float staminaRegenRate = 5f; // Stamina points regenerated per second
 
     [Header("Weapons")]
-    [SerializeField] private GameObject weaponOne; // Prima arma
-    [SerializeField] private GameObject weaponTwo; // Seconda arma
+    [SerializeField] public GameObject weaponOne; // Prima arma
+    [SerializeField] public GameObject weaponTwo; // Seconda arma
 
     private GameObject currentWeapon; // Arma attualmente equipaggiata
 
     private List<Item> inventory = new List<Item>(); // Lista di oggetti raccolti
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         EquipWeapon(weaponOne); // Equipaggia la prima arma di default
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        RegenerateStamina();
     }
 
     protected override void Update()
     {
         base.Update();
-
-        // Regenera stamina ogni frame
-        RegenerateStamina();
 
         // Gestisci il cambio di arma
         HandleWeaponSwitch();
@@ -47,6 +51,15 @@ public class Player : Entity
         else
         {
             Move(movement); // Movimento normale
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (currentWeapon != null)
+            {
+                var weaponComponent = currentWeapon.GetComponent<Weapon>();
+                weaponComponent.TryAttack(this);
+            }
         }
     }
 

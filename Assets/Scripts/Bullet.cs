@@ -13,18 +13,15 @@ public class Bullet : MonoBehaviour
     public Vector2 currentDirection = Vector2.zero;
     
     public Weapon weapon;
-    public Player player;
-
     void Start()
-    {
-        
+    {        
         // Assign a random damage value around the base damage with variation
         damage = baseDamage + Random.Range(-damageVariation, damageVariation + 1);
         
         // Ensure damage is not negative
         damage = Mathf.Max(0, damage);
         
-        damage = weapon.GetDameage();
+        damage += weapon.GetDamage();
         
         // Destroy the bullet after its lifespan expires
         Destroy(gameObject, lifespan);
@@ -33,7 +30,7 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         // Move the bullet forward at a constant speed
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(currentDirection * speed * Time.deltaTime);
     }
 
     // Handle collision with other objects
@@ -49,9 +46,5 @@ public class Bullet : MonoBehaviour
 
         // Destroy the bullet on impact
         Destroy(gameObject);
-    }
-    private void EntityBullet(){
-        transform.position = player.transform.position;
-        currentDirection = Input.mousePosition - Input.mousePosition;
     }
 }

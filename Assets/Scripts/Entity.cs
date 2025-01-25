@@ -63,4 +63,9 @@ public class Entity : MonoBehaviour
     {
         // Logica generale per tutte le entità
     }
+
+    protected virtual void FixedUpdate()
+    {
+        // Logica generale per tutte le entità
+    }
 }
