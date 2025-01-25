@@ -27,7 +27,6 @@ public class RoomGenerator : MonoBehaviour
 
     void GenerateRoomTree()
     {
-        
         RoomNodeData initialNode = new RoomNodeData(new Vector2(0,0));
         nodes.Add(initialNode.IdealPosition,initialNode);
 
@@ -48,28 +47,26 @@ public class RoomGenerator : MonoBehaviour
 
     void GenerateNodeData(string roomType)
     {
-        int selectedRoomIndex = -1;
+        List<Vector2> availableDirections = new List<Vector2>();
+        RoomNodeData startingNode;
 
         do
         {
-            selectedRoomIndex = Random.Range(0,nodes.Count);
-        }while (nodes.ElementAt(selectedRoomIndex).Value.isFull() == true);
+            int selectedRoomIndex = Random.Range(0,nodes.Count);
+            startingNode = nodes.ElementAt(selectedRoomIndex).Value;
+            
+            if (nodes.ContainsKey(startingNode.IdealPosition + Vector2.up) == false)
+                availableDirections.Add(Vector2.up);
 
-        RoomNodeData startingNode = nodes.ElementAt(selectedRoomIndex).Value;
+            if (nodes.ContainsKey(startingNode.IdealPosition + Vector2.right) == false)
+                availableDirections.Add(Vector2.right);
 
-        List<Vector2> availableDirections = new List<Vector2>();
+            if (nodes.ContainsKey(startingNode.IdealPosition + Vector2.down) == false)
+                availableDirections.Add(Vector2.down);
 
-        if (nodes.ContainsKey(startingNode.IdealPosition + Vector2.up) == false)
-            availableDirections.Add(Vector2.up);
-
-        if (nodes.ContainsKey(startingNode.IdealPosition + Vector2.right) == false)
-            availableDirections.Add(Vector2.right);
-
-        if (nodes.ContainsKey(startingNode.IdealPosition + Vector2.down) == false)
-            availableDirections.Add(Vector2.down);
-
-        if (nodes.ContainsKey(startingNode.IdealPosition + Vector2.left) == false)
-            availableDirections.Add(Vector2.left);
+            if (nodes.ContainsKey(startingNode.IdealPosition + Vector2.left) == false)
+                availableDirections.Add(Vector2.left);
+        }while (availableDirections.Count == 0);
 
         Debug.Log(availableDirections.Count);
 
@@ -114,12 +111,36 @@ public class RoomGenerator : MonoBehaviour
 
             if (pair.Key.x == 0 && pair.Key.y == 0)
                 startingRoomPosition = roomObject.transform.position + new Vector3(roomComponent.width/2,roomComponent.height/2);
+
+            SpecializeRoom(roomComponent,node.roomType);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void SpecializeRoom(Room room,string roomType)
     {
-        
+        if (roomType == "Generic")
+        {
+            GenerateEnemyInRoom(room);
+        }
+
+        if (roomType == "Treasure")
+        {
+            GenerateEnemyInRoom(room);
+            GenerateEnemyInRoom(room);
+        }
+
+        if (roomType == "Boss")
+        {
+            GenerateEnemyInRoom(room);
+            GenerateEnemyInRoom(room);
+            GenerateEnemyInRoom(room);
+        }
+    }
+
+    void GenerateEnemyInRoom(Room room)
+    {
+        var pos = room.GetRandomPosition();
+        var enemy = GameManager.GetEnemyInstance();
+        enemy.transform.position = pos;
     }
 }
