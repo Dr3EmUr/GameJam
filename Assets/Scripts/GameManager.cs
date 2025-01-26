@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameObject HealthText;
     static Object[] Enemies;
     public static Vector3 CurrentPlayerPosition;
+    public static Camera PlayerCamera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {                            

@@ -21,14 +21,27 @@ public class Player : Entity
 
     private List<Item> inventory = new List<Item>(); // Lista di oggetti raccolti
 
+    private Transform VisionCone;
+    private Transform VisionCircle;
+    private float visionConePlrDistance = 0.7f;
     protected override void Start()
     {
         base.Start();
+
+        if (weaponOne)
+            weaponOne = Instantiate(weaponOne);
+
+        if (weaponTwo)
+            weaponTwo = Instantiate(weaponTwo);
         
         EquipWeapon(weaponOne); // Equipaggia la prima arma di default
 
         Camera.main.GetComponent<CameraScript>().player = transform;
         animator = GetComponent<Animator>();
+
+        var container = transform.GetChild(0);
+        VisionCircle = container.Find("VisionCircle");
+        VisionCone = container.Find("VisionCone");
     }
 
     protected override void FixedUpdate()
@@ -74,6 +87,32 @@ public class Player : Entity
 
         animator.SetFloat("horAxis",horAxis);
         animator.SetFloat("vertAxis",vertAxis);
+
+        HandleLightCone();
+    }
+
+    private void HandleLightCone()
+    {
+        Camera camera = GameManager.PlayerCamera;
+        
+        if (camera == null)
+            return;
+
+        Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 playerPos = transform.position;
+
+        Vector2 differenceVector = (mousePos - playerPos).normalized;
+
+        float x = differenceVector.x;
+        float y = differenceVector.y;
+
+        float theta = Mathf.Atan2(y,x);
+
+        Vector3 rotation = new Vector3(0,0,theta);
+        Vector3 position = playerPos + differenceVector * visionConePlrDistance;
+
+        var finalRotation = Quaternion.Euler(rotation);
+        VisionCone.SetPositionAndRotation(position,finalRotation);
     }
 
     // Metodo per equipaggiare un'arma specifica
@@ -81,19 +120,22 @@ public class Player : Entity
     {
         if (weaponToEquip == currentWeapon) return; // Se è già equipaggiata, non fare nulla
 
-        currentWeapon = Instantiate(weaponToEquip);
+        if (weaponToEquip != weaponOne && weaponToEquip != weaponTwo)
+            currentWeapon = Instantiate(weaponToEquip);
+        else
+            currentWeapon = weaponToEquip;
 
         // Disattiva l'arma attuale (se esiste)
         if (currentWeapon != null)
         {
-            Destroy(currentWeapon);
+            currentWeapon.SetActive(false);
         }
 
         // Attiva la nuova arma
         currentWeapon = weaponToEquip;
         if (currentWeapon != null)
         {
-            Destroy(currentWeapon);
+            currentWeapon.SetActive(true);
             Debug.Log($"Arma equipaggiata: {currentWeapon.name}");
         }
     }
