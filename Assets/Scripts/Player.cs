@@ -105,7 +105,7 @@ public class Player : Entity
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             EquipWeapon(weaponTwo);
-             Debug.Log($"Gesemo arama DUE: {currentWeapon.name}");
+            Debug.Log($"Gesemo arama DUE: {currentWeapon.name}");
         }
     }
 
