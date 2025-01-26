@@ -116,6 +116,7 @@ MonoBehaviour:
   staminaRegenRate: 5
   weaponOne: {fileID: 9116274421441961091, guid: 7c79668ebb2c12447848ed7eb681e62c, type: 3}
   weaponTwo: {fileID: 9116274421441961091, guid: 7c79668ebb2c12447848ed7eb681e62c, type: 3}
+  visionConePlrDistance: 1
 --- !u!61 &5951088078656927452
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -234,6 +235,7 @@ MonoBehaviour:
   staminaRegenRate: 5
   weaponOne: {fileID: 9116274421441961091, guid: 7c79668ebb2c12447848ed7eb681e62c, type: 3}
   weaponTwo: {fileID: 0}
+  visionConePlrDistance: 1
 --- !u!1 &5964794978594488362
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2719640496818203923, guid: a25402a5986b5a04cb3332d10692c33f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2719640496818203923, guid: a25402a5986b5a04cb3332d10692c33f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -454,7 +456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2719640496818203923, guid: a25402a5986b5a04cb3332d10692c33f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2719640496818203923, guid: a25402a5986b5a04cb3332d10692c33f, type: 3}
       propertyPath: m_LocalPosition.z

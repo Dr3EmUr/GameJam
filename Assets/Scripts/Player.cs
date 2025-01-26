@@ -23,7 +23,7 @@ public class Player : Entity
 
     private Transform VisionCone;
     private Transform VisionCircle;
-    private float visionConePlrDistance = 0.7f;
+    public  float visionConePlrDistance = 1.2f;
     protected override void Start()
     {
         base.Start();
@@ -99,20 +99,25 @@ public class Player : Entity
             return;
 
         Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 playerPos = transform.position;
+        Vector2 playerPos = VisionCircle.position;
 
         Vector2 differenceVector = (mousePos - playerPos).normalized;
 
         float x = differenceVector.x;
         float y = differenceVector.y;
 
-        float theta = Mathf.Atan2(y,x);
+        float angleTranslation = 90;
+        float theta = (Mathf.Atan2(y,x) * 360 / Mathf.PI /2) + angleTranslation;
+        Debug.Log(theta);
+
+        Vector3 translation = differenceVector * visionConePlrDistance;
+        Debug.Log(translation);
 
         Vector3 rotation = new Vector3(0,0,theta);
-        Vector3 position = playerPos + differenceVector * visionConePlrDistance;
+        Vector3 position = VisionCircle.localPosition + translation;
 
         var finalRotation = Quaternion.Euler(rotation);
-        VisionCone.SetPositionAndRotation(position,finalRotation);
+        VisionCone.SetLocalPositionAndRotation(position,finalRotation);        
     }
 
     // Metodo per equipaggiare un'arma specifica
