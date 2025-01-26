@@ -14,7 +14,8 @@ public class Player : Entity
     [SerializeField] public GameObject weaponOne; // Prima arma
     [SerializeField] public GameObject weaponTwo; // Seconda arma
 
-    private GameObject currentWeapon; // Arma attualmente equipaggiata
+    private GameObject currentWeapon; // Arma attualmente 
+    private Animator animator;
 
     private List<Item> inventory = new List<Item>(); // Lista di oggetti raccolti
 
@@ -24,6 +25,7 @@ public class Player : Entity
         EquipWeapon(weaponOne); // Equipaggia la prima arma di default
 
         Camera.main.GetComponent<CameraScript>().player = transform;
+        animator = GetComponent<Animator>();
     }
 
     protected override void FixedUpdate()
@@ -62,6 +64,12 @@ public class Player : Entity
                 weaponComponent.TryAttack(this);
             }
         }
+
+        var horAxis = Input.GetAxisRaw("Horizontal");
+        var vertAxis = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("horAxis",horAxis);
+        animator.SetFloat("vertAxis",vertAxis);
     }
 
     // Metodo per equipaggiare un'arma specifica
@@ -69,7 +77,7 @@ public class Player : Entity
     {
         if (weaponToEquip == currentWeapon) return; // Se è già equipaggiata, non fare nulla
 
-        weaponToEquip = Instantiate(weaponToEquip);
+        currentWeapon = Instantiate(weaponToEquip);
 
         // Disattiva l'arma attuale (se esiste)
         if (currentWeapon != null)
