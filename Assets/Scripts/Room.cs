@@ -52,28 +52,14 @@ public class Room : MonoBehaviour
 
     public Vector2 GetRandomPosition()
     {
-
-        UnityEngine.Object[] Enemies = Resources.LoadAll("Enemies"); // should probably do this quite early
-        Debug.Log("Count: " + Enemies.Count());
-        Object randomEnemy = Enemies[Mathf.FloorToInt(Random.value *Enemies.Length)];
-
-        GameObject Enemy1 = GameObject.Instantiate(randomEnemy) as GameObject;
-        Vector2 minPos = transform.position + new Vector3(1,1);
-        Vector2 maxPos = transform.position + new Vector3(width,height) - new Vector3(1,1);
+        Vector2 minPos = transform.position + new Vector3(2,2);
+        Vector2 maxPos = transform.position + new Vector3(width,height) - new Vector3(2,2);
 
         float randomX = Random.Range(minPos.x,maxPos.x);
         float randomY = Random.Range(minPos.y,maxPos.y);
 
         Vector2 finalPos = new Vector2(randomX,randomY);
 
-        Enemy1.transform.position = finalPos;
-
         return finalPos;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

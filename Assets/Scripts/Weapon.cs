@@ -5,14 +5,9 @@ public class Weapon : MonoBehaviour
 {
     [Header("Weapon Stats")]
     [SerializeField] public int attackDamage = 10; // Base attack damage
-    [SerializeField] public double range = 5f;      // Weapon range
-    [SerializeField] public double cooldown = 5f;   // Cooldown time (in seconds)
-    private double lastAttackTime = 0; // Tracks when the weapon was last used
-
-    void Start()
-    {
-        lastAttackTime = 0;
-    }
+    [SerializeField] public float range = 5f;      // Weapon range
+    [SerializeField] public float cooldown = 5f;   // Cooldown time (in seconds)
+    private float lastAttackTime = -0f; // Tracks when the weapon was last used
 
     // Method to attempt an attack
     public bool TryAttack(Player player)
