@@ -3,9 +3,9 @@ using UnityEngine;
 public class ProjectileEnemy : Entity
 {
     [Header("Enemy Stats")]
-    public int PerceptionRange = 50;
-    public int ShootingRange = 40;
-    public int RunningRange = 20;
+    public int IdealDistance = 2;
+    public float cooldown = 2;
+    public GameObject BulletModel;
 
     // Method to attack the player
     public void AttackPlayer(Entity player)
@@ -28,15 +28,80 @@ public class ProjectileEnemy : Entity
         var collider = GetComponent<BoxCollider2D>();
     }
 
-    protected override void OnCollisionEnter2D(Collision2D collision) 
+    Player currentPlayer;
+
+    void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        Debug.Log("SpecializedCollision");
+        var plr = collision.GetComponent<Player>();
+
+        if (plr != null)
+            currentPlayer = plr;
+
+    }
+
+    void OnTriggerExit2D(UnityEngine.Collider2D collision)
+    {
+        var plr = collision.GetComponent<Player>();
+
+        if (plr != null)
+            currentPlayer = null;
     }
 
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
+
+        if (currentPlayer != null)
+        {
+            var subtractionVector = currentPlayer.transform.position - transform.position;
+            var distance = subtractionVector.magnitude;
+            var plrDirection = subtractionVector.normalized;
+
+            Debug.Log(distance);
+
+            if (distance > IdealDistance)
+            {
+                Move(plrDirection * speed);
+            }
+            else
+            {
+                Move(-plrDirection * speed);
+            }
+
+            TryAttack(plrDirection);
+
+        }
+        
        
+    }
+
+    float lastAttackTime = 0;
+
+    public bool TryAttack(Vector2 direction)
+    {
+        Debug.Log(Time.time);
+        Debug.Log(lastAttackTime);
+        if (Time.time >= lastAttackTime + cooldown)
+        {
+            PerformAttack(direction);
+            lastAttackTime = Time.time; // Update the last attack time
+            return true;
+        }
+        else
+        {
+            Debug.Log("Weapon is on cooldown!");
+            return false;
+        }
+
+    }
+
+    private void PerformAttack(Vector2 direction)
+    {
+        Debug.Log("Perform attack!");
+        GameObject go = Instantiate(BulletModel);
+        var bullet = go.GetComponent<Bullet>();
+
+        bullet.BulletSetup(transform.position, direction, "Player");
     }
 
 }

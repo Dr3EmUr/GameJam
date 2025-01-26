@@ -38,15 +38,15 @@ public class Weapon : MonoBehaviour
         Debug.Log("Perform attack!");
         GameObject go = Instantiate(BulletModel);
         var bullet = go.GetComponent<Bullet>();
-        bullet.weapon = this;
 
         var v3 = Input.mousePosition;
         v3.z = 10.0f;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(v3);
 
+       
+
         var playerPos = player.transform.position;
-        bullet.transform.position = playerPos;
-        bullet.currentDirection = new Vector2(mousePos.x - playerPos.x, mousePos.y - playerPos.y).normalized;
+        bullet.BulletSetup(playerPos, new Vector2(mousePos.x - playerPos.x, mousePos.y - playerPos.y).normalized, "Enemy");
     }
 
     public int GetDamage(){
