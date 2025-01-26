@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef61393d352a844f976345fbc9b872e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 8210
+  attackDamage: 8387
   range: 5
   cooldown: 1
   BulletModel: {fileID: 1441628531573238248, guid: adc2be3727e22094b80ecab3f15eac59, type: 3}

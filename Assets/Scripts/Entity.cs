@@ -69,4 +69,9 @@ public class Entity : MonoBehaviour
     {
         // Logica generale per tutte le entità
     }
+
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
 }

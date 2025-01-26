@@ -113,8 +113,8 @@ MonoBehaviour:
   stamina: 100
   maxStamina: 100
   staminaRegenRate: 5
-  weaponOne: {fileID: 0}
-  weaponTwo: {fileID: 0}
+  weaponOne: {fileID: 9116274421441961091, guid: 7c79668ebb2c12447848ed7eb681e62c, type: 3}
+  weaponTwo: {fileID: 9116274421441961091, guid: 7c79668ebb2c12447848ed7eb681e62c, type: 3}
 --- !u!61 &5951088078656927452
 BoxCollider2D:
   m_ObjectHideFlags: 0

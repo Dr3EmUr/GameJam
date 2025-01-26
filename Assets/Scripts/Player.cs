@@ -21,7 +21,7 @@ public class Player : Entity
     protected override void Start()
     {
         base.Start();
-        EquipWeapon(Instantiate(weaponOne)); // Equipaggia la prima arma di default
+        EquipWeapon(weaponOne); // Equipaggia la prima arma di default
 
         Camera.main.GetComponent<CameraScript>().player = transform;
     }
@@ -68,6 +68,8 @@ public class Player : Entity
     private void EquipWeapon(GameObject weaponToEquip)
     {
         if (weaponToEquip == currentWeapon) return; // Se è già equipaggiata, non fare nulla
+
+        weaponToEquip = Instantiate(weaponToEquip);
 
         // Disattiva l'arma attuale (se esiste)
         if (currentWeapon != null)

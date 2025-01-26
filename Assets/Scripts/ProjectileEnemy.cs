@@ -25,9 +25,12 @@ public class ProjectileEnemy : Entity
 
     protected override void Start()
     {
-        base.Start();
-        GameObject playerObject = GameObject.Find("Player");
-        Player player = playerObject.GetComponent<Player>();
+        var collider = GetComponent<BoxCollider2D>();
+    }
+
+    protected override void OnCollisionEnter2D(Collision2D collision) 
+    {
+        Debug.Log("SpecializedCollision");
     }
 
     protected override void FixedUpdate()
