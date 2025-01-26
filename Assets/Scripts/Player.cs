@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 
 public class Player : Entity
 {
@@ -22,6 +24,7 @@ public class Player : Entity
     protected override void Start()
     {
         base.Start();
+        
         EquipWeapon(weaponOne); // Equipaggia la prima arma di default
 
         Camera.main.GetComponent<CameraScript>().player = transform;
@@ -164,7 +167,25 @@ public class Player : Entity
         Debug.Log($"Oggetto raccolto: {item.itemName}");
         CalculateStats();
     }
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        Debug.Log("1: " + GameManager.HealthText.name);
+        var txt = GameManager.HealthText.GetComponent<TextMeshProUGUI>();
+
+        Debug.Log(txt == null);
+        txt.SetText(health.ToString());
+    }
+
+    public override void Heal(int amount)
+    {
+        base.Heal(amount);
+
+        var txt = GameManager.HealthText.GetComponent<Text>();
+        txt.text = health.ToString();
+    }
     public int GetattackPower (){
-         return baseDamage;
+        return baseDamage;
     }
 }
