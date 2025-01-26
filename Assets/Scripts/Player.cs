@@ -21,14 +21,27 @@ public class Player : Entity
 
     private List<Item> inventory = new List<Item>(); // Lista di oggetti raccolti
 
+    private Transform VisionCone;
+    private Transform VisionCircle;
+    public  float visionConePlrDistance = 1.2f;
     protected override void Start()
     {
         base.Start();
+
+        if (weaponOne)
+            weaponOne = Instantiate(weaponOne);
+
+        if (weaponTwo)
+            weaponTwo = Instantiate(weaponTwo);
         
         EquipWeapon(weaponOne); // Equipaggia la prima arma di default
 
         Camera.main.GetComponent<CameraScript>().player = transform;
         animator = GetComponent<Animator>();
+
+        var container = transform.GetChild(0);
+        VisionCircle = container.Find("VisionCircle");
+        VisionCone = container.Find("VisionCone");
     }
 
     protected override void FixedUpdate()
@@ -74,6 +87,37 @@ public class Player : Entity
 
         animator.SetFloat("horAxis",horAxis);
         animator.SetFloat("vertAxis",vertAxis);
+
+        HandleLightCone();
+    }
+
+    private void HandleLightCone()
+    {
+        Camera camera = GameManager.PlayerCamera;
+        
+        if (camera == null)
+            return;
+
+        Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 playerPos = VisionCircle.position;
+
+        Vector2 differenceVector = (mousePos - playerPos).normalized;
+
+        float x = differenceVector.x;
+        float y = differenceVector.y;
+
+        float angleTranslation = 90;
+        float theta = (Mathf.Atan2(y,x) * 360 / Mathf.PI /2) + angleTranslation;
+        Debug.Log(theta);
+
+        Vector3 translation = differenceVector * visionConePlrDistance;
+        Debug.Log(translation);
+
+        Vector3 rotation = new Vector3(0,0,theta);
+        Vector3 position = VisionCircle.localPosition + translation;
+
+        var finalRotation = Quaternion.Euler(rotation);
+        VisionCone.SetLocalPositionAndRotation(position,finalRotation);        
     }
 
     // Metodo per equipaggiare un'arma specifica
@@ -81,19 +125,22 @@ public class Player : Entity
     {
         if (weaponToEquip == currentWeapon) return; // Se è già equipaggiata, non fare nulla
 
-        currentWeapon = Instantiate(weaponToEquip);
+        if (weaponToEquip != weaponOne && weaponToEquip != weaponTwo)
+            currentWeapon = Instantiate(weaponToEquip);
+        else
+            currentWeapon = weaponToEquip;
 
         // Disattiva l'arma attuale (se esiste)
         if (currentWeapon != null)
         {
-            Destroy(currentWeapon);
+            currentWeapon.SetActive(false);
         }
 
         // Attiva la nuova arma
         currentWeapon = weaponToEquip;
         if (currentWeapon != null)
         {
-            Destroy(currentWeapon);
+            currentWeapon.SetActive(true);
             Debug.Log($"Arma equipaggiata: {currentWeapon.name}");
         }
     }
