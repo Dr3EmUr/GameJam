@@ -10,14 +10,18 @@ public class SceneController : MonoBehaviour
     [Header("Intro Settings")]
     [SerializeField] private float introDuration = 63f; // Durata dell'intro in secondi
 
-    private void Start()
+    void Update()
     {
-        // Assicurati di essere nella scena intro
-        if (SceneManager.GetActiveScene().name == introScene)
+        if (Input.GetMouseButtonDown(0))
         {
-            // Avvia il timer per passare alla scena successiva
-            Invoke(nameof(LoadGameScene), introDuration);
+            LoadGameScene();
         }
+    }
+
+    void Start()
+    {
+        // Avvia il timer per passare alla scena successiva
+        Invoke(nameof(LoadGameScene), introDuration);
     }
 
     private void LoadGameScene()
