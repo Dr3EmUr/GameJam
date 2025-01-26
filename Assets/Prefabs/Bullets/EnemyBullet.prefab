@@ -101,9 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db51d281e5e873a4bb81cc469ff0e4ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 10
+  baseDamage: 70
   damageVariation: 5
-  owner: {fileID: 0}
+  targetTag: 
   speed: 10
   lifespan: 5
   currentDirection: {x: 0, y: 0}

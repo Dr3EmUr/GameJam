@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public GameObject root;
     public GameObject GenericRoom;
     static Object[] Enemies;
+    public static Vector3 CurrentPlayerPosition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {                            

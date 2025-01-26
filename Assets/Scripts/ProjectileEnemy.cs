@@ -3,7 +3,9 @@ using UnityEngine;
 public class ProjectileEnemy : Entity
 {
     [Header("Enemy Stats")]
-    public int IdealDistance = 2;
+    public int IdealMinDistance = 2;
+    public int IdealMaxDistance = 3;
+    public int SightRange = 5;
     public float cooldown = 2;
     public GameObject BulletModel;
 
@@ -28,51 +30,36 @@ public class ProjectileEnemy : Entity
         var collider = GetComponent<BoxCollider2D>();
     }
 
-    Player currentPlayer;
-
-    void OnTriggerEnter2D(UnityEngine.Collider2D collision)
-    {
-        var plr = collision.GetComponent<Player>();
-
-        if (plr != null)
-            currentPlayer = plr;
-
-    }
-
-    void OnTriggerExit2D(UnityEngine.Collider2D collision)
-    {
-        var plr = collision.GetComponent<Player>();
-
-        if (plr != null)
-            currentPlayer = null;
-    }
-
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
 
-        if (currentPlayer != null)
-        {
-            var subtractionVector = currentPlayer.transform.position - transform.position;
-            var distance = subtractionVector.magnitude;
-            var plrDirection = subtractionVector.normalized;
+        var plrPos = GameManager.CurrentPlayerPosition;
 
+        if (plrPos == null)
+            return;
+
+        var subtractionVector = plrPos - transform.position;
+        var distance = subtractionVector.magnitude;
+        var plrDirection = subtractionVector.normalized;
+        
+
+        if (distance < SightRange)
+        {
             Debug.Log(distance);
 
-            if (distance > IdealDistance)
+            if (distance > IdealMaxDistance)
             {
                 Move(plrDirection * speed);
             }
-            else
+
+            if (distance < IdealMinDistance)
             {
                 Move(-plrDirection * speed);
             }
 
             TryAttack(plrDirection);
-
         }
-        
-       
     }
 
     float lastAttackTime = 0;

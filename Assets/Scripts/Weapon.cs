@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class Weapon : MonoBehaviour
 {
     [Header("Weapon Stats")]
-    [SerializeField] public int attackDamage = 10; // Base attack damage
+    [SerializeField] public int attackDamage = 1; // Base attack damage
     [SerializeField] public float range = 5f;      // Weapon range
     [SerializeField] public float cooldown = 5f;   // Cooldown time (in seconds)
     private float lastAttackTime = -0f; // Tracks when the weapon was last used
@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
     public bool TryAttack(Player player)
     {
          //imposto il danno dal player
-        attackDamage += player.GetattackPower();
+        attackDamage *= player.GetattackPower();
 
         Debug.Log(Time.time);
         Debug.Log(lastAttackTime);

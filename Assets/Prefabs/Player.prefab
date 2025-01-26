@@ -106,8 +106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 1
   speed: 2
-  health: 5
-  maxHealth: 5
+  health: 500
+  maxHealth: 500
   defense: 5
   agility: 50
   stamina: 100
@@ -149,7 +149,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0018155873, y: -0.4372948}
+  m_Offset: {x: 0.007014483, y: -0.31252187}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -159,7 +159,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.502526, y: 0.4884376}
+  m_Size: {x: 0.59610575, y: 0.6548021}
   m_EdgeRadius: 0
 --- !u!50 &2216090943959960595
 Rigidbody2D:
@@ -227,7 +227,7 @@ MonoBehaviour:
   health: 5
   maxHealth: 5
   defense: 5
-  agility: 5
+  agility: 1
   stamina: 100
   maxStamina: 100
   staminaRegenRate: 5

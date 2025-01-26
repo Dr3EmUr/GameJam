@@ -6,8 +6,8 @@ public class Entity : MonoBehaviour
     [Header("Entity Stats")]
     public int baseDamage = 1;
     public int speed = 2;
-    public int health = 5;
-    public int maxHealth = 5;
+    public int health = 500;
+    public int maxHealth = 500;
 
     [Header("State")]
     protected bool isAlive = true;
@@ -43,6 +43,7 @@ public class Entity : MonoBehaviour
         isAlive = false;
         // Aggiungere logica specifica per la morte (ad esempio, animazioni o distruzione)
         Debug.Log($"{gameObject.name} è morto.");
+        Destroy(gameObject);
     }
 
     // Metodo per spostare l'entità

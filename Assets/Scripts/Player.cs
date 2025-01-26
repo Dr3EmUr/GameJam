@@ -4,8 +4,8 @@ using System.Collections.Generic;
 public class Player : Entity
 {
     [Header("Player Stats")]
-    [SerializeField] private int defense = 5;      // Base defense
-    [SerializeField] private int agility = 5;      // Base agility
+    [SerializeField] private int defense = 1;      // Base defense
+    [SerializeField] private int agility = 2;      // Base agility
     [SerializeField] private int stamina = 100;    // Player's current stamina
     [SerializeField] private int maxStamina = 100; // Maximum stamina
     [SerializeField] private float staminaRegenRate = 5f; // Stamina points regenerated per second
@@ -30,6 +30,7 @@ public class Player : Entity
     {
         base.FixedUpdate();
         RegenerateStamina();
+        GameManager.CurrentPlayerPosition = transform.position;
     }
 
     protected override void Update()
@@ -69,19 +70,19 @@ public class Player : Entity
     {
         if (weaponToEquip == currentWeapon) return; // Se è già equipaggiata, non fare nulla
 
-        weaponToEquip = Instantiate(weaponToEquip);
+        currentWeapon = Instantiate(weaponToEquip);
 
         // Disattiva l'arma attuale (se esiste)
         if (currentWeapon != null)
         {
-            currentWeapon.SetActive(false);
+            Destroy(currentWeapon);
         }
 
         // Attiva la nuova arma
         currentWeapon = weaponToEquip;
         if (currentWeapon != null)
         {
-            currentWeapon.SetActive(true);
+            Destroy(currentWeapon);
             Debug.Log($"Arma equipaggiata: {currentWeapon.name}");
         }
     }
@@ -107,12 +108,10 @@ public class Player : Entity
         if (stamina >= amount)
         {
             stamina -= Mathf.RoundToInt(amount);
-            Debug.Log($"Stamina consumata: {amount}. Stamina rimanente: {stamina}");
             return true;
         }
         else
         {
-            Debug.Log("Stamina insufficiente!");
             return false;
         }
     }
@@ -148,13 +147,6 @@ public class Player : Entity
             totalAgilityBonus += item.AgilityBonusItem;
             totalStaminaMaxBonus += item.StaminaBonusItem;
         }
-
-        // Aggiorna le statistiche con i bonus
-        baseDamage = 10 + totalAttackBonus;
-        defense = 5 + totalDefenseBonus;
-        agility = 5 + totalAgilityBonus;
-        maxStamina = 5 + totalStaminaMaxBonus;
-        Debug.Log($"Statistiche aggiornate - Attacco: {baseDamage}, Difesa: {defense}, Agilità: {agility}");
     }
 
     // Aggiunge un oggetto all'inventario e ricalcola le statistiche
