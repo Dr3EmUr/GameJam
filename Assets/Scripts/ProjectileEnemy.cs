@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class Enemy : Entity
+public class ProjectileEnemy : Entity
 {
     [Header("Enemy Stats")]
-    [SerializeField] private int baseDamage = 1; // Enemy's base damage
-    [SerializeField] private int sightRange = 1; // Enemy's field of view
-    [SerializeField] private int perception = 1; // Enemy's perception beyond sight range
+    public int PerceptionRange = 50;
+    public int ShootingRange = 40;
+    public int RunningRange = 20;
 
     // Method to attack the player
     public void AttackPlayer(Entity player)
@@ -22,4 +22,18 @@ public class Enemy : Entity
         base.Die();
         Debug.Log($"{gameObject.name} has been defeated.");
     }
+
+    protected override void Start()
+    {
+        base.Start();
+        GameObject playerObject = GameObject.Find("Player");
+        Player player = playerObject.GetComponent<Player>();
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+       
+    }
+
 }

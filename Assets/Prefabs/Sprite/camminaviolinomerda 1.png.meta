@@ -297,7 +297,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      camminaviolinomerda 1_0: -1215625621405258534
+      camminaviolinomerda 1_1: -4650937440885363549
+      camminaviolinomerda 1_2: 1171198786020766204
+      camminaviolinomerda 1_3: -2870479831954340467
+      camminaviolinomerda 1_4: 5430136770367261689
+      camminaviolinomerda 1_5: -7395081978591006531
+      camminaviolinomerda 1_6: -8281727765021308560
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -4,6 +4,7 @@ public class Entity : MonoBehaviour
 {
     // Parametri base per tutte le entità
     [Header("Entity Stats")]
+    public int baseDamage = 1;
     public int speed = 2;
     public int health = 5;
     public int maxHealth = 5;

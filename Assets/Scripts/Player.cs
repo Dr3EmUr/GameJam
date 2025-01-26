@@ -4,7 +4,6 @@ using System.Collections.Generic;
 public class Player : Entity
 {
     [Header("Player Stats")]
-    [SerializeField] private int attackPower = 10; // Base attack power
     [SerializeField] private int defense = 5;      // Base defense
     [SerializeField] private int agility = 5;      // Base agility
     [SerializeField] private int stamina = 100;    // Player's current stamina
@@ -129,7 +128,7 @@ public class Player : Entity
     // Ritorna il valore dell'attacco
     public int GetAttackPower()
     {
-        return attackPower;
+        return baseDamage;
     }
 
     // Calcola i bonus degli oggetti
@@ -149,11 +148,11 @@ public class Player : Entity
         }
 
         // Aggiorna le statistiche con i bonus
-        attackPower = 10 + totalAttackBonus;
+        baseDamage = 10 + totalAttackBonus;
         defense = 5 + totalDefenseBonus;
         agility = 5 + totalAgilityBonus;
         maxStamina = 5 + totalStaminaMaxBonus;
-        Debug.Log($"Statistiche aggiornate - Attacco: {attackPower}, Difesa: {defense}, Agilità: {agility}");
+        Debug.Log($"Statistiche aggiornate - Attacco: {baseDamage}, Difesa: {defense}, Agilità: {agility}");
     }
 
     // Aggiunge un oggetto all'inventario e ricalcola le statistiche
@@ -164,6 +163,6 @@ public class Player : Entity
         CalculateStats();
     }
     public int GetattackPower (){
-         return attackPower;
+         return baseDamage;
     }
 }
